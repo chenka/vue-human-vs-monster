@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Human VS Monster</title>
+    <script src="js/vue.js" charset="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/app.css" >
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="row head">
+        <div class="col-md-6">
+          <h1 class="text-center name">YOU</h1>
+          <div class="healthbar">
+            <div 
+              class="healthbar text-center" 
+              style="background-color: green; margin: 0; color: white;"
+              :style="{width: playerHealth + '%'}">
+              {{ playerHealth }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h1 class="text-center name">MONSTER</h1>
+          <div class="healthbar">
+            <div
+              class="healthbar text-center" 
+              style="background-color: green; margin: 0; color: white;"
+              :style="{width: monsterHealth + '%'}">
+              {{ monsterHealth }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row controls panel panel-default" v-if="!gameIsRunning">
+        <div class="col-md-12 text-center">
+          <button id="start-game" class="btn btn-success btn-lg" @click="startGame">START NEW GAME </button>
+        </div>
+      </div>
+      <div class="row controls panel panel-default" v-else>
+        <div class="col-md-12 text-center">
+          <button id="attack" class="btn btn-lg btn-danger" @click="attack">ATTACK</button>
+          <button id="special-attack" class="btn btn-lg btn-warning" @click="specialAttack">SPECIAL ATTACK</button>
+          <button id="heal" class="btn btn-lg btn-success" @click="heal">HEAL</button>
+          <button id="give-up" class="btn btn-lg btn-default" @click="giveUp">GIVE UP</button>
+        </div>  
+      </div>
+      <div class="row logs panel panel-default" v-if="turns.length > 0">
+        <div class="col-md-12 text-center">
+          <ul>
+            <li class="log" v-for="turn in turns" :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}">
+              {{ turn.text }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/app.js" charset="text/javascript"></script>
+  </body>
+</html>

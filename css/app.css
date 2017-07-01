@@ -1,0 +1,40 @@
+.healthbar {
+  width: 100%;
+  height: 40px;
+  background-color: #eee;
+  margin: auto;
+  transition: width 100ms;
+}
+.logs ul {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.head {
+  margin-bottom: 20px;
+}
+
+.controls .btn {
+  color: black;
+  margin-left: 15px;
+}
+
+.controls {
+  padding: 20px;
+}
+
+.logs .log.player-turn {
+  background-color: #ddd;
+  color: blue;
+}
+
+.logs li {
+  margin-bottom: 5px;
+}
+
+.logs .log.monster-turn {
+  background-color: #f1b5be;
+  color: red;
+}

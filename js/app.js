@@ -1,4 +1,4 @@
-const app = new Vue({
+const vm = new Vue({
   el: '#app',
   data: {
     playerHealth: 100,
